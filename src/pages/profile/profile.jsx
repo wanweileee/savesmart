@@ -1,4 +1,5 @@
 import styles from './styles.module.css';
+import avatar from '../../assets/avatar.png';
 
 const profileOptions = [
   'Invite Friends',
@@ -13,12 +14,8 @@ export default function Profile() {
   return (
     <div className={styles.container}>
       <div className={styles.profileHeader}>
-        <img
-          className={styles.avatar}
-        //   src="https://i.pravatar.cc/100?img=5" // Replace with real user avatar
-          alt="User avatar"
-        />
-        <h2 className={styles.username}>Wan Wei</h2>
+          <img src={avatar} alt="User avatar" className={styles.image} />
+          <h2 className={styles.username}>Wan Wei</h2>
       </div>
 
       <ul className={styles.optionList}>
