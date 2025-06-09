@@ -1,0 +1,30 @@
+.transactionItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.transactionName {
+  font-weight: 500;
+  color: #222;
+}
+
+.transactionDate {
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+.amountPositive {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.amountNegative {
+  color: #dc2626;
+  font-weight: 600;
+}

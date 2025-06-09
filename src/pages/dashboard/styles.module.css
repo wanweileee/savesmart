@@ -1,0 +1,48 @@
+.container {
+  padding: 1.5rem;
+  background-color: #f0fdf4;
+  min-height: 100vh;
+}
+
+.header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.chart {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.chartLabel {
+  font-size: 1rem;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+.fakeChart {
+  height: 120px;
+  background: linear-gradient(to right, #a7f3d0, #34d399);
+  border-radius: 8px;
+}
+
+.section {
+  margin-top: 1rem;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.transactionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
