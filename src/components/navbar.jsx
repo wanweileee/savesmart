@@ -7,7 +7,6 @@ export default function Navbar() {
     { label: 'Dashboard', path: '/dashboard' },
     { label: 'Wallet', path: '/wallet' },
     { label: 'Profile', path: '/profile' },
-    { label: 'Camera', path: '/camera' },
   ];
 
   return (
