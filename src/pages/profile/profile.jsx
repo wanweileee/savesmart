@@ -1,30 +1,38 @@
 import styles from './styles.module.css';
-import avatar from '../../assets/avatar.png';
-
-const profileOptions = [
-  'Invite Friends',
-  'Account Info',
-  'Personal Profile',
-  'Message Center',
-  'Login and Security',
-  'Data and Privacy',
-];
+import topBackground from '../../assets/bg.png';
+import avatarImg from '../../assets/avatar.png'; // Replace with actual avatar
 
 export default function Profile() {
   return (
     <div className={styles.container}>
-      <div className={styles.profileHeader}>
-          <img src={avatar} alt="User avatar" className={styles.image} />
-          <h2 className={styles.username}>Wan Wei</h2>
+      {/* Top Header */}
+      <header
+        className={styles.heroHeader}
+        style={{
+          backgroundImage: `url(${topBackground})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          backgroundPosition: 'top center',
+        }}
+      >
+        <h2 className={styles.pageTitle}>Profile</h2>
+      </header>
+
+      {/* Avatar and Name */}
+      <div className={styles.profileSection}>
+        <img src={avatarImg} alt="Avatar" className={styles.avatar} />
+        <h3 className={styles.name}>Wan Wei</h3>
       </div>
 
-      <ul className={styles.optionList}>
-        {profileOptions.map((option, idx) => (
-          <li key={idx} className={styles.optionItem}>
-            {option}
-          </li>
-        ))}
-      </ul>
+      {/* Profile Options */}
+      <div className={styles.options}>
+        <div className={styles.optionItem}>Invite Friends</div>
+        <div className={styles.optionItem}>Account info</div>
+        <div className={styles.optionItem}>Personal profile</div>
+        <div className={styles.optionItem}>Message center</div>
+        <div className={styles.optionItem}>Login and security</div>
+        <div className={styles.optionItem}>Data and privacy</div>
+      </div>
     </div>
   );
 }
