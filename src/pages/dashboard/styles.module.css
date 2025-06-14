@@ -1,48 +1,132 @@
+/* Root container */
 .container {
-  padding: 1.5rem;
-  background-color: #f0fdf4;
+  background-color: #ffffff;
   min-height: 100vh;
-}
-
-.header {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.chart {
-  background: #fff;
-  border-radius: 12px;
   padding: 1rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header */
+.pageTitle {
   text-align: center;
-}
-
-.chartLabel {
-  font-size: 1rem;
-  color: #4b5563;
+  font-size: 1.25rem;
+  font-weight: 600;
   margin-bottom: 1rem;
+  color: #111827;
 }
 
-.fakeChart {
-  height: 120px;
-  background: linear-gradient(to right, #a7f3d0, #34d399);
-  border-radius: 8px;
+/* Toggle Group */
+.toggleGroup {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
+.toggleBtn {
+  background-color: #f3f4f6;
+  color: #374151;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggleBtn.active {
+  background-color: #14b8a6;
+  color: white;
+  font-weight: 600;
+}
+
+/* Chart Wrapper */
+.chartWrapper {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 2rem;
+}
+
+/* Section Title */
 .section {
   margin-top: 1rem;
 }
 
 .sectionTitle {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: #333;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-left: 0.25rem;
+  color: #111827;
 }
 
+/* Transaction List */
 .transactionList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+/* Optional: For inline use if you customize <Transaction /> inside this page */
+.transactionCard {
+  background-color: #f9fafb;
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.transactionCard.active {
+  background-color: #14b8a6;
+  color: white;
+}
+
+.txnLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.txnIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.txnText {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+}
+
+.txnText .name {
+  font-weight: 500;
+}
+
+.txnText .date {
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+
+.txnAmount {
+  font-weight: 600;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.txnAmount.positive {
+  color: #16a34a;
+}
+
+.txnAmount.negative {
+  color: #dc2626;
 }

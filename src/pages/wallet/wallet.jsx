@@ -1,24 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 import topBackground from '../../assets/bg.png';
 
 export default function Wallet() {
   const [activeTab, setActiveTab] = useState('transactions');
+  const [expenses, setExpenses] = useState([]);
+  const BASE_BALANCE = 5000;
 
-  const transactions = [
-    { name: 'Upwork', date: 'Today', amount: 850 },
-    { name: 'Transfer', date: 'Yesterday', amount: -85 },
-    { name: 'Paypal', date: 'Jan 30, 2022', amount: 1406 },
-    { name: 'YouTube', date: 'Jan 16, 2022', amount: -11.99 },
-  ];
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem('expenses') || '[]');
+    setExpenses(saved);
+  }, []);
 
-  const upcomingBills = [
-    { name: 'Netflix', date: 'June 20, 2025', amount: -18.99 },
-    { name: 'Spotify', date: 'June 22, 2025', amount: -9.99 },
-    { name: 'Phone Bill', date: 'June 25, 2025', amount: -48.50 },
-  ];
+  const getTotalBalance = () => {
+    return expenses.reduce((acc, curr) => acc - parseFloat(curr.amount || 0), BASE_BALANCE);
+  };
 
-  const displayedItems = activeTab === 'transactions' ? transactions : upcomingBills;
+  const transactions = expenses.filter(e => e.type === 'transaction');
+  const bills = expenses.filter(e => e.type === 'bill');
+  const displayedItems = activeTab === 'transactions' ? transactions : bills;
 
   return (
     <div className={styles.container}>
@@ -36,7 +36,7 @@ export default function Wallet() {
 
       <section className={styles.card}>
         <p className={styles.balanceLabel}>Total Balance</p>
-        <h1 className={styles.balance}>$2,548.00</h1>
+        <h1 className={styles.balance}>${getTotalBalance().toFixed(2)}</h1>
 
         <div className={styles.actions}>
           <div className={styles.actionItem}><div className={styles.actionIcon}>＋</div><span>Add</span></div>
@@ -45,7 +45,6 @@ export default function Wallet() {
         </div>
       </section>
 
-      {/* Tabs */}
       <div className={styles.tabs}>
         <div
           className={`${styles.tab} ${activeTab === 'transactions' ? styles.active : ''}`}
@@ -61,7 +60,6 @@ export default function Wallet() {
         </div>
       </div>
 
-      {/* Displayed Transactions or Bills */}
       <div className={styles.transactionList}>
         {displayedItems.map((item, index) => (
           <div key={index} className={styles.transactionItem}>
@@ -70,7 +68,7 @@ export default function Wallet() {
               <span className={styles.txnDate}>{item.date}</span>
             </div>
             <span className={item.amount >= 0 ? styles.amountPlus : styles.amountMinus}>
-              {item.amount >= 0 ? `+ $${item.amount.toFixed(2)}` : `- $${Math.abs(item.amount).toFixed(2)}`}
+              {item.amount >= 0 ? `+ $${Number(item.amount).toFixed(2)}` : `- $${Math.abs(Number(item.amount)).toFixed(2)}`}
             </span>
           </div>
         ))}
