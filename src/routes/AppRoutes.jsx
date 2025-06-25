@@ -1,6 +1,6 @@
 // src/routes/AppRoutes.jsx
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
 import Onboarding from '../pages/onboarding/onboarding';
 import Homepage from '../pages/homepage/homepage';
@@ -15,7 +15,7 @@ import Camera from '../pages/camera/camera';
 
 const AppRoutes = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Onboarding />} />
         <Route path="/login" element={<Login />} />
@@ -28,7 +28,7 @@ const AppRoutes = () => {
           <Route path="/camera" element={<Camera />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
